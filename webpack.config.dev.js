@@ -38,8 +38,13 @@ module.exports = {
         use: ["babel-loader", "eslint-loader"],
       },
       {
-        test: /(\.css)$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.sass$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader", // 3. Inject styles into DOM
+          "css-loader", // 2. Turns css into commonjs
+          "sass-loader", // 1. Turns sass into css
+        ],
       },
     ],
   },
