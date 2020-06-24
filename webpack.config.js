@@ -46,7 +46,17 @@ const base = {
 				test: /\.s?(a|c)ss$/,
 				use: [
 					'style-loader',
-					"css-loader",
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							sourceMap: true,
+							localsConvention: 'camelCase',
+							modules: {
+								localIdentName: '[path][name]_[local]--[hash:base64:5]'
+							}
+						}
+					},
 					'postcss-loader',
 					"sass-loader",
 				],
@@ -78,15 +88,24 @@ const environments = {
 			hints: false,
 		},
 		optimization: {
-			minimizer: [new TerserJSPlugin({}), new OptimizeCssAssetsPlugin({})],
+			minimizer: [
+				new TerserJSPlugin({}),
+				new OptimizeCssAssetsPlugin({
+					assetNameRegExp: /\.css$/g,
+					cssProcessor: require('cssnano')({
+						preset: 'default',
+					}),
+					cssProcessorPluginOptions: {
+						preset: ['default', { discardComments: { removeAll: true } }],
+					},
+					canPrint: true
+				})
+			],
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
 				filename: "[name].css",
 				chunkFilename: "[id].css",
-			}),
-			require('cssnano')({
-				preset: 'default',
 			}),
 		],
 	},
