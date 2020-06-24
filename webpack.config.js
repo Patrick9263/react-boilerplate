@@ -13,7 +13,7 @@ const base = {
 	context: path.resolve('src'),
 	// entry: // // path.resolve("src/index.js"),
 	entry: [
-		'bootstrap/scss/bootstrap.scss',
+		'bootstrap/dist/css/bootstrap.css',
 		'./index.js',
 	],
 	output: {
@@ -43,7 +43,15 @@ const base = {
 				},
 			},
 			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					'css-loader',
+				],
+			},
+			{
 				test: /\.s?(a|c)ss$/,
+				exclude: /node_modules/,
 				use: [
 					'style-loader',
 					{
