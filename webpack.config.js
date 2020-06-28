@@ -12,7 +12,7 @@ const cssNano = require('cssnano');
 const base = {
 	target: 'web',
 	context: path.resolve('src'),
-	// entry: // // path.resolve("src/index.js"),
+	// entry: path.resolve("src/index.js"),
 	entry: [
 		'bootstrap/dist/css/bootstrap.css',
 		'./index.js',
