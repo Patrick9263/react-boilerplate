@@ -1,2 +1,4 @@
 # react-boilerplate
-Some React Boilerplate Code
+Basic React Boilerplate Code with eslint, babel, webpack, etc.
+
+![Home Page](public/homePage.png)
