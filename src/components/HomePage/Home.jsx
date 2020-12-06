@@ -2,7 +2,7 @@ import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
 import Navigation from '../Navigation.jsx';
-import styles from './Home.scss';
+import styles from './Home.css';
 
 const Home = () => (
 	<div className={styles.container}>
