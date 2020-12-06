@@ -3,7 +3,7 @@ import {
 	Navbar, Nav, NavDropdown, NavItem, Form, FormControl, Button,
 } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.scss';
+import styles from './Navigation.css';
 
 const Navigation = () => (
 	<Navbar bg="dark" variant="dark" expand="lg" className={styles.noselect} >
